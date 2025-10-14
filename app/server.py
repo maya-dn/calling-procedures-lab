@@ -69,6 +69,8 @@ def item_endpoint(key):
             return jsonify({"error":"not found"}), 404
         return jsonify({"result":"deleted"})
     
+
+    from markupsafe import escape
 # Vulnerable endpoint: reflects name into HTML without escaping
 @app.route("/vulnerable_echo")
 def vulnerable_echo():
