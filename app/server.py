@@ -4,6 +4,12 @@ from . import utils
 
 app = Flask(__name__)
 
+@app.after_request
+def add_security_headers(response):
+    # Deny inline scripts; only allow scripts loaded from same origin
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'"
+    return response
+
 @app.route("/")
 def index():
     # simple HTML form for manual testing
