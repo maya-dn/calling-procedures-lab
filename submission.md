@@ -5,7 +5,7 @@ Author: Maya Drukin
 
 ## Security Report
 - *What you sent*; I sent "name=<script>alert(1)</script>" to vunerable echo.
-- *What happened in the browser*; the script showed up plain, meaning the vulerablility was fixed. 
+- *What happened in the browser*; the script showed up plain, meaning the vulerablility was fixed. It wouldn't let me commit with the vulerability still in place. However, in theory, the output of the script should have shown the number 1 in order to show the vulerability.
 - *Why the server was vulnerable*; it was taking the user input into HTML without escaping which enables JS to run.
 
 
