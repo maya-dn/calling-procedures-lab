@@ -76,12 +76,11 @@ def item_endpoint(key):
         return jsonify({"result":"deleted"})
     
 
-    from markupsafe import escape
 # Vulnerable endpoint: reflects name into HTML without escaping
 @app.route("/vulnerable_echo")
 def vulnerable_echo():
     name = request.args.get("name", "")
-    html = f"<h2>Hello {escape(name)}</h2>"
+    html = f"<h2>Hello {name}</h2>"
     return html, 200, {"Content-Type": "text/html; charset=utf-8"}
 
 # "Safe" echo uses escaping
